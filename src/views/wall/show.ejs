@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+    <main class="container">
+      <h2><%= wall.name %></h2>
+      <p><%= wall.description %></p>
+    </main>
+    <div>
+      <h4>Comments</h4>
+      <p><%= wall.comments %></p>
+      <form action="/wall/<%= wall.id %>/comment/create" method="post">
+        <div class="form-group">
+          <textarea name="content" class="form-control" placeholder="Enter comment" rows="3" cols="20"></textarea>
+          <div id="preview"> </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <% include ../static/partials/baseScripts.ejs %>
+  </body>

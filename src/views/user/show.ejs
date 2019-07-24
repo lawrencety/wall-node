@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+    <main class="container">
+      <% include ../static/partials/messages.ejs %>
+      <h1><%= `${user.name}'s profile` %></h1>
+      <hr>
+      <% if (currentUser) { %>
+        <% if (currentUser.id === user.id) { %>
+      
+        <% } %>
+      <% } %>
+    </main>
+    <% include ../static/partials/baseScripts.ejs %>
+  </body>
+</html>

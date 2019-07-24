@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+    <main class="container">
+      <h2>New Wall</h2>
+      <form action="/wall/create" method="post">
+        <div class="form-group">
+          <label for="name">Wall Title</label>
+          <input type="text" class="form-control" name="name" aria-describedby="titleHelp" placeholder="Enter Title">
+        </div>
+        <div class="form-group">
+          <label for="description">Wall Description</label>
+          <textarea name="description" class="form-control" placeholder="Enter description" rows="6" cols="60"></textarea>
+          <div id="preview"> </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+    <% include ../static/partials/baseScripts.ejs %>
+  </body>
