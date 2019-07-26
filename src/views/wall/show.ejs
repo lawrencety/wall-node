@@ -10,20 +10,24 @@
       <p><%= wall.description %></p>
       <div>
         <h4>Comments</h4>
-        <% wall.comments.forEach((comment) => { %>
-          <% console.log(comment) %>
-          <div class="comment">
-            <h6><%= comment.User.name %> - <span><%= comment.createdAt %></span></h6>
-            <p><%= comment.content %></p>
-          </div>
-        <% }) %>
-        <form action="/wall/<%= wall.id %>/comment/create" method="post">
-          <div class="form-group">
-            <textarea name="content" class="form-control" placeholder="Enter comment" rows="3" cols="20"></textarea>
-            <div id="preview"> </div>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <% if (wall.comments) {
+          wall.comments.forEach((comment) => { %>
+            <% console.log(comment) %>
+            <div class="comment">
+              <h6><%= comment.User.name %> - <span><%= comment.createdAt %></span></h6>
+              <p><%= comment.content %></p>
+            </div>
+          <% }) %>
+        <% } %>
+        <% if (currentUser) { %>
+          <form action="/wall/<%= wall.id %>/comment/create" method="post">
+            <div class="form-group">
+              <textarea name="content" class="form-control" placeholder="Enter comment" rows="3" cols="20"></textarea>
+              <div id="preview"> </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        <% } %>
       </div>
     </main>
     <% include ../static/partials/baseScripts.ejs %>

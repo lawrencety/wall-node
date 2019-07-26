@@ -31,7 +31,6 @@ module.exports = {
       description: req.body.description,
       userId: req.user.id
     }
-    console.log(options);
     wallQueries.createWall(options, (err, wall) => {
       if (err) {
         res.redirect(500, '/wall/new');
