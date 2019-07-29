@@ -7,12 +7,11 @@ module.exports = {
       wallId: req.params.wallId,
       userId: req.user.id
     }
-    console.log(options);
     commentQueries.createComment(options, (err, comment) => {
       if (err) {
         res.redirect(500, req.headers.referer);
       } else {
-        res.redirect(req.headers.referer)
+        res.redirect(`/wall/${options.wallId}`)
       }
     })
   }
